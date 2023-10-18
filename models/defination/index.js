@@ -19,7 +19,8 @@ teacher.belongsTo(user, {
 courses.belongsToMany(teacher,{
   onDELETE: "CASCADE",
   through : "Teachercourse",
-  as : "teacher"
+  as : "teacher",
+  foreignKey : {name : "courseID",allownull: false},
 })
 
 const models = sequelize.models;
