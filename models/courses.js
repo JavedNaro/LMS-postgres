@@ -1,11 +1,25 @@
-class Course {
-    constructor(id, name, description) {
-      this.id = id;
-      this.name = name;
-      this.description = description;
-      // Add more fields as needed
-    }
-  }
-  
-  module.exports = Course;
+const { DataTypes } = require("sequelize");
+let sequelize = require("../common/dbconnection");
+  const courses = sequelize.define(
+    "courses",
+    {
+      id: {
+        primaryKey: true,
+        autoIncrement: true,
+        type: DataTypes.INTEGER,
+      },
+      English:{
+        allownull:false,
+        type: DataTypes.INTEGER,
+      },
+      Urdu:{
+        allownull:false,
+        type: DataTypes.INTEGER,
+      },
+      Math:{
+        allownull:false,
+        type: DataTypes.INTEGER,
+      }
+    });
+  module.exports = courses;
   

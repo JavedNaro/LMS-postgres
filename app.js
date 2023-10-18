@@ -7,8 +7,9 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 let resources = require('./routes/resources');
 const database = require('./common/dbconnection');
-let student = require('./routes/student')
-let courses = require('./routes/courses')
+let student = require('./routes/student');
+let courses = require('./routes/courses');
+let teacher = require('./routes/teacher');
 var app = express();
 
 // view engine setup
@@ -24,7 +25,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/resources',resources);
 app.use("/student",student);
-app.use("/courses",courses)
+app.use("/courses",courses);
+app.use("/teacher", teacher);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
