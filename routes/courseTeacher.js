@@ -2,7 +2,7 @@ var express = require("express");
 const {
   createCourseTeacher,
   getTeachersOfCourse,
-} = require("../controller/resources/course-teacher");
+} = require("../controller/resources/courseTeacher");
 
 var router = express.Router();
 
