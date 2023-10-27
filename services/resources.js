@@ -1,5 +1,5 @@
 const { models } = require("../models/defination");
-
+const bcrypt = require ('bcrypt')
 const Joi = require("joi"); // Use Joi for validation
 
 // Define a schema for resource update
@@ -30,6 +30,8 @@ module.exports = {
     return result;
   },
   createResource: async (data) => {
+    const saltRound = 10;
+    data.phoneNUmbers=bcrypt.hashSync(data.phoneNUmbers,saltRound)
     // Validate the incoming data against the schema
     const result = await models.user.create(data);
     return result;
